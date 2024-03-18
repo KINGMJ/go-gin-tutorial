@@ -14,18 +14,18 @@ type LoginForm struct {
 }
 
 func main() {
-	demo3()
+	demo1()
 }
 
 func demo1() {
 	r := gin.Default()
-	r.GET("/login", func(ctx *gin.Context) {
+	r.POST("/login", func(ctx *gin.Context) {
 		var form LoginForm
 		if ctx.ShouldBind(&form) == nil {
 			ctx.JSON(http.StatusOK, form)
 		}
 	})
-	r.Run()
+	r.Run(":8082")
 }
 
 func demo2() {
